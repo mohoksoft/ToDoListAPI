@@ -13,10 +13,10 @@ namespace ToDoListAPI.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ToDoEntities1 : DbContext
+    public partial class ToDoDBContext : DbContext
     {
-        public ToDoEntities1()
-            : base("name=ToDoEntities1")
+        public ToDoDBContext()
+            : base("name=ToDoDBContext")
         {
         }
     
@@ -25,6 +25,8 @@ namespace ToDoListAPI.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<List> Lists { get; set; }
     }
 }
